@@ -8,11 +8,32 @@
 import UIKit
 
 class PokemonDetailViewController: UIViewController {
+    
+    var receivedPokemon : Pokemon?
 
+    @IBOutlet weak var pokemonName: UILabel!
+
+    @IBOutlet weak var pokemonImageModal: UIImageView!
+    
+    @IBOutlet weak var pokemonLabelAbility: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("Pokemon: ", receivedPokemon!)
+        
+        pokemonName.text = receivedPokemon?.name
+        
+        pokemonImageModal.image = UIImage(named: receivedPokemon!.image)
+        
+        pokemonLabelAbility.text = receivedPokemon?.ability
+    
+    }
+    
+    
+    @IBAction func closeModal(_ sender: Any) {
+        dismiss(animated: true)
     }
     
 
@@ -27,3 +48,4 @@ class PokemonDetailViewController: UIViewController {
     */
 
 }
+
